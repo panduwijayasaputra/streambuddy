@@ -10,6 +10,7 @@
 - `apps/backend/src/qa/qa-engine.service.test.ts` - Unit tests for Q&A engine and response logic.
 - `apps/backend/src/analytics/analytics.service.ts` - Collects and provides streamer analytics and activity data.
 - `apps/backend/src/analytics/analytics.service.test.ts` - Unit tests for analytics service.
+- `apps/backend/src/analytics/analytics.controller.ts` - Handles API endpoints for analytics data retrieval. (Now includes input validation, error handling, and Swagger API documentation)
 - `apps/frontend/components/Overlay/StreamBuddyOverlay.tsx` - Stream overlay component for displaying StreamBuddy responses and avatar.
 - `apps/frontend/components/Overlay/StreamBuddyOverlay.test.tsx` - Unit tests for overlay component.
 - `apps/frontend/components/Settings/PersonalizationPanel.tsx` - UI for customizing StreamBuddy's name, avatar, and chat bubble.
@@ -24,14 +25,14 @@
 
 ## Tasks
 
-- [ ] 1.0 Implement Real-Time Chat Monitoring and Filtering
+- [x] 1.0 Implement Real-Time Chat Monitoring and Filtering
 
   - [x] 1.1 Design and implement chat message ingestion pipeline (WebSocket, REST, or both)
   - [x] 1.2 Filter and preprocess incoming chat messages (remove spam, irrelevant messages)
   - [x] 1.3 Store chat messages in the database (`chat_messages` table)
   - [x] 1.4 Write unit tests for chat monitoring and filtering logic
 
-- [ ] 2.0 Develop StreamBuddy Mention Detection and Response System
+- [x] 2.0 Develop StreamBuddy Mention Detection and Response System
 
   - [x] 2.1 Implement logic to detect @StreamBuddy (or custom name) mentions in chat
   - [x] 2.2 Ensure mention detection supports Indonesian/English and slang variations
@@ -46,12 +47,12 @@
   - [x] 3.4 Ensure responses use proper Indonesian/English and gaming slang
   - [x] 3.5 Write unit tests for Q&A engine and response logic
 
-- [ ] 4.0 Create Streamer Analytics and Activity Dashboard
+- [x] 4.0 Create Streamer Analytics and Activity Dashboard
 
-  - [ ] 4.1 Design backend analytics service to aggregate chat engagement and StreamBuddy activity
-  - [ ] 4.2 Implement API endpoints for analytics data retrieval
-  - [ ] 4.3 Build frontend dashboard to display analytics to streamers
-  - [ ] 4.4 Write unit tests for analytics backend and frontend components
+  - [x] 4.1 Design backend analytics service to aggregate chat engagement and StreamBuddy activity
+  - [x] 4.2 Implement API endpoints for analytics data retrieval
+  - [x] 4.3 Build frontend dashboard to display analytics to streamers
+  - [x] 4.4 Write unit tests for analytics backend and frontend components
 
 - [ ] 5.0 Integrate StreamBuddy Overlay and Personalization Features
   - [ ] 5.1 Develop overlay component for OBS/browser source (avatar, chat bubble, smooth animations)
