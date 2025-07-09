@@ -132,10 +132,10 @@ describe("AnalyticsDashboard", () => {
 
     await waitFor(() => {
       expect(mockFetch).toHaveBeenCalledWith(
-        "/api/analytics/test-stream-123/snapshot?interval=1h"
+        "http://localhost:3001/api/analytics/test-stream-123/snapshot?interval=1h"
       );
       expect(mockFetch).toHaveBeenCalledWith(
-        "/api/analytics/test-stream-123/trends?range=24h"
+        "http://localhost:3001/api/analytics/test-stream-123/trends?range=24h"
       );
     });
   });

@@ -42,12 +42,12 @@ export const AnalyticsDashboard: React.FC<{ streamId: string }> = ({
     async function fetchData() {
       setLoading(true);
       const snapRes = await fetch(
-        `/api/analytics/${streamId}/snapshot?interval=1h`
+        `http://localhost:3001/api/analytics/${streamId}/snapshot?interval=1h`
       );
       const snapData = await snapRes.json();
       setSnapshot(snapData);
       const trendsRes = await fetch(
-        `/api/analytics/${streamId}/trends?range=24h`
+        `http://localhost:3001/api/analytics/${streamId}/trends?range=24h`
       );
       const trendsData = await trendsRes.json();
       setTrends(Array.isArray(trendsData) ? trendsData : []);
