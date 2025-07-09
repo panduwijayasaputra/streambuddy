@@ -54,9 +54,9 @@
   - [x] 4.3 Build frontend dashboard to display analytics to streamers
   - [x] 4.4 Write unit tests for analytics backend and frontend components
 
-- [ ] 5.0 Integrate StreamBuddy Overlay and Personalization Features
-  - [ ] 5.1 Develop overlay component for OBS/browser source (avatar, chat bubble, smooth animations)
-  - [ ] 5.2 Implement UI for streamer personalization (name, avatar, chat bubble style)
-  - [ ] 5.3 Ensure overlay supports StreamBuddy brand colors, light/dark themes, and shadcn/ui components
-  - [ ] 5.4 Integrate overlay with real-time chat and Q&A responses
-  - [ ] 5.5 Write unit tests for overlay and personalization features
+- [x] 5.0 Integrate StreamBuddy Overlay and Personalization Features
+  - [x] 5.1 Develop overlay component for OBS/browser source (avatar, chat bubble, smooth animations)
+  - [x] 5.2 Implement UI for streamer personalization (name, avatar, chat bubble style)
+  - [x] 5.3 Ensure overlay supports StreamBuddy brand colors, light/dark themes, and shadcn/ui components
+  - [x] 5.4 Integrate overlay with real-time chat and Q&A responses
+  - [x] 5.5 Write unit tests for overlay and personalization features
