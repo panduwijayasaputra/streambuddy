@@ -54,7 +54,12 @@
     "db:performance:health": "ts-node src/common/utils/database-performance-cli.util.ts health",
     "db:performance:trends": "ts-node src/common/utils/database-performance-cli.util.ts trends",
     "db:performance:summary": "ts-node src/common/utils/database-performance-cli.util.ts summary",
-    "db:performance:history": "ts-node src/common/utils/database-performance-cli.util.ts history"
+    "db:performance:history": "ts-node src/common/utils/database-performance-cli.util.ts history",
+    "secrets:validate": "ts-node src/scripts/secrets-cli.ts validate",
+    "secrets:list": "ts-node src/scripts/secrets-cli.ts list",
+    "secrets:generate": "ts-node src/scripts/secrets-cli.ts generate",
+    "secrets:rotate": "ts-node src/scripts/secrets-cli.ts rotate",
+    "secrets:check": "ts-node src/scripts/secrets-cli.ts check"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
