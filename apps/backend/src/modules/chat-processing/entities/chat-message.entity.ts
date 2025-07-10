@@ -7,7 +7,7 @@ import {
   Index,
 } from "typeorm";
 
-@Entity("chat_messages")
+@Entity("stream_chat_messages")
 export class ChatMessage {
   @PrimaryGeneratedColumn("uuid")
   id: string;

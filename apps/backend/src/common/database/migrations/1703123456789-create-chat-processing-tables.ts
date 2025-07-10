@@ -4,10 +4,10 @@ export class CreateChatProcessingTables1703123456789
   implements MigrationInterface
 {
   public async up(queryRunner: QueryRunner): Promise<void> {
-    // Create chat_messages table
+    // Create stream_chat_messages table (renamed to avoid conflict)
     await queryRunner.createTable(
       new Table({
-        name: "chat_messages",
+        name: "stream_chat_messages",
         columns: [
           {
             name: "id",
@@ -78,21 +78,21 @@ export class CreateChatProcessingTables1703123456789
       true
     );
 
-    // Create indexes for chat_messages
+    // Create indexes for stream_chat_messages
     await queryRunner.query(
-      "CREATE INDEX idx_chat_messages_stream_session_id ON chat_messages (stream_session_id);"
+      "CREATE INDEX idx_stream_chat_messages_stream_session_id ON stream_chat_messages (stream_session_id);"
     );
     await queryRunner.query(
-      "CREATE INDEX idx_chat_messages_platform ON chat_messages (platform);"
+      "CREATE INDEX idx_stream_chat_messages_platform ON stream_chat_messages (platform);"
     );
     await queryRunner.query(
-      "CREATE INDEX idx_chat_messages_user_id ON chat_messages (user_id);"
+      "CREATE INDEX idx_stream_chat_messages_user_id ON stream_chat_messages (user_id);"
     );
     await queryRunner.query(
-      "CREATE INDEX idx_chat_messages_status ON chat_messages (status);"
+      "CREATE INDEX idx_stream_chat_messages_status ON stream_chat_messages (status);"
     );
     await queryRunner.query(
-      "CREATE INDEX idx_chat_messages_created_at ON chat_messages (created_at);"
+      "CREATE INDEX idx_stream_chat_messages_created_at ON stream_chat_messages (created_at);"
     );
 
     // Create response_templates table
@@ -239,8 +239,8 @@ export class CreateChatProcessingTables1703123456789
 
     // Create triggers for all tables
     await queryRunner.query(`
-      CREATE TRIGGER update_chat_messages_updated_at 
-        BEFORE UPDATE ON chat_messages 
+      CREATE TRIGGER update_stream_chat_messages_updated_at 
+        BEFORE UPDATE ON stream_chat_messages 
         FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
     `);
 
@@ -260,7 +260,7 @@ export class CreateChatProcessingTables1703123456789
   public async down(queryRunner: QueryRunner): Promise<void> {
     // Drop triggers
     await queryRunner.query(
-      "DROP TRIGGER IF EXISTS update_chat_messages_updated_at ON chat_messages;"
+      "DROP TRIGGER IF EXISTS update_stream_chat_messages_updated_at ON stream_chat_messages;"
     );
     await queryRunner.query(
       "DROP TRIGGER IF EXISTS update_response_templates_updated_at ON response_templates;"
@@ -277,6 +277,6 @@ export class CreateChatProcessingTables1703123456789
     // Drop tables
     await queryRunner.dropTable("game_knowledge");
     await queryRunner.dropTable("response_templates");
-    await queryRunner.dropTable("chat_messages");
+    await queryRunner.dropTable("stream_chat_messages");
   }
 }

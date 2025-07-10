@@ -59,7 +59,8 @@
     "secrets:list": "ts-node src/scripts/secrets-cli.ts list",
     "secrets:generate": "ts-node src/scripts/secrets-cli.ts generate",
     "secrets:rotate": "ts-node src/scripts/secrets-cli.ts rotate",
-    "secrets:check": "ts-node src/scripts/secrets-cli.ts check"
+    "secrets:check": "ts-node src/scripts/secrets-cli.ts check",
+    "chat:seed": "ts-node src/scripts/seed-chat-processing.ts"
   },
   "dependencies": {
     "@nestjs/cache-manager": "^3.0.1",
