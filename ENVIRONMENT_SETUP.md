@@ -1,6 +1,6 @@
 # StreamBuddy Environment Setup Guide
 
-This guide provides comprehensive instructions for setting up environment variables across different environments in the StreamBuddy project.
+This guide provides instructions for setting up environment variables for the StreamBuddy project in development.
 
 ## 📁 Environment Files Structure
 
@@ -10,9 +10,7 @@ StreamBuddy/
 ├── apps/
 │   ├── frontend/
 │   │   ├── env.example           # Frontend environment template
-│   │   ├── env.development.example # Development environment
-│   │   ├── env.staging.example   # Staging environment
-│   │   └── env.production.example # Production environment
+│   │   └── env.development.example # Development environment
 │   └── backend/
 │       └── env.example           # Backend environment template
 └── ENVIRONMENT_SETUP.md          # This file
@@ -39,14 +37,10 @@ cd apps/frontend
 # Copy environment templates
 cp env.example .env.local
 cp env.development.example .env.development.local
-cp env.staging.example .env.staging.local
-cp env.production.example .env.production.local
 
 # Edit the files with your actual values
 nano .env.local
 nano .env.development.local
-nano .env.staging.local
-nano .env.production.local
 ```
 
 ### 3. Backend Environment Setup
@@ -66,7 +60,7 @@ nano .env
 
 ### Root Environment Variables
 
-The root `env.example` file contains shared configuration that applies to the entire project:
+The root `env.example` file contains shared configuration:
 
 - **Application Configuration**: Basic app settings
 - **Database Configuration**: PostgreSQL connection settings
@@ -78,9 +72,8 @@ The root `env.example` file contains shared configuration that applies to the en
 - **Backup & Recovery**: Database backup configuration
 - **External Services**: Twitch, YouTube, Discord integrations
 - **Analytics & Monitoring**: Sentry, Google Analytics
-- **Feature Flags**: Feature toggles for different environments
+- **Feature Flags**: Feature toggles
 - **Development Settings**: Development-specific configurations
-- **Production Settings**: Production overrides
 
 ### Frontend Environment Variables
 
@@ -159,9 +152,7 @@ Backend environment variables are server-side only:
 - `RATE_LIMIT_LIMIT`: Maximum requests per window
 - `RATE_LIMIT_MESSAGE`: Rate limit error message
 
-## 🌍 Environment-Specific Configurations
-
-### Development Environment
+## 🌍 Development Environment
 
 **File**: `apps/frontend/.env.development.local`
 
@@ -171,28 +162,6 @@ Backend environment variables are server-side only:
 - Relaxed security settings
 - Detailed logging
 - Performance optimizations disabled
-
-### Staging Environment
-
-**File**: `apps/frontend/.env.staging.local`
-
-- Debug mode enabled for testing
-- Production-like settings
-- Staging API endpoints
-- Moderate security settings
-- Testing features enabled
-- Mock data support
-
-### Production Environment
-
-**File**: `apps/frontend/.env.production.local`
-
-- Debug mode disabled
-- Performance optimizations enabled
-- Strict security settings
-- Production API endpoints
-- Error tracking enabled
-- Analytics enabled
 
 ## 🔐 Security Best Practices
 
@@ -207,20 +176,10 @@ echo "!.env.example" >> .gitignore
 ### 2. API Key Management
 
 - Never commit real API keys to version control
-- Use different API keys for each environment
+- Use test API keys for development
 - Rotate API keys regularly
-- Use environment-specific API keys
 
-### 3. Secret Management
-
-For production environments, consider using:
-
-- **AWS Secrets Manager**
-- **Azure Key Vault**
-- **Google Cloud Secret Manager**
-- **HashiCorp Vault**
-
-### 4. Environment Variable Validation
+### 3. Environment Variable Validation
 
 Create validation scripts to ensure required variables are set:
 
@@ -311,30 +270,6 @@ export class EnvironmentHealthService {
 }
 ```
 
-## 🔄 Environment Migration
-
-### 1. Development to Staging
-
-```bash
-# Copy development config to staging
-cp apps/frontend/.env.development.local apps/frontend/.env.staging.local
-
-# Update staging-specific values
-sed -i 's/localhost:3001/api-staging.streambuddy.com\/api/g' apps/frontend/.env.staging.local
-sed -i 's/development/staging/g' apps/frontend/.env.staging.local
-```
-
-### 2. Staging to Production
-
-```bash
-# Copy staging config to production
-cp apps/frontend/.env.staging.local apps/frontend/.env.production.local
-
-# Update production-specific values
-sed -i 's/staging.streambuddy.com/streambuddy.com/g' apps/frontend/.env.production.local
-sed -i 's/staging/production/g' apps/frontend/.env.production.local
-```
-
 ## 🚨 Troubleshooting
 
 ### Common Issues
@@ -393,7 +328,7 @@ When adding new environment variables:
 2. Document the variable in this guide
 3. Add validation if required
 4. Update deployment scripts if needed
-5. Test in all environments
+5. Test in development environment
 
 ---
 
