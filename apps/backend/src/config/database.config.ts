@@ -14,7 +14,10 @@ export const createDatabaseConfig = (configService: ConfigService) => {
     username: configService.get("DB_USERNAME", "postgres"),
     password: configService.get("DB_PASSWORD", "postgres"),
     database: configService.get("DB_NAME", "streambuddy"),
-    entities: [__dirname + "/../common/database/entities/**/*.entity{.ts,.js}"],
+    entities: [
+      __dirname + "/../common/database/entities/**/*.entity{.ts,.js}",
+      __dirname + "/../modules/chat-processing/entities/**/*.entity{.ts,.js}",
+    ],
     migrations: [__dirname + "/../common/database/migrations/**/*{.ts,.js}"],
     synchronize: configService.get("NODE_ENV") === "development",
     logging: optimizationConfig.logging.enabled,
@@ -61,7 +64,10 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USERNAME || "postgres",
   password: process.env.DB_PASSWORD || "postgres",
   database: process.env.DB_NAME || "streambuddy",
-  entities: [__dirname + "/../common/database/entities/**/*.entity{.ts,.js}"],
+  entities: [
+    __dirname + "/../common/database/entities/**/*.entity{.ts,.js}",
+    __dirname + "/../modules/chat-processing/entities/**/*.entity{.ts,.js}",
+  ],
   migrations: [__dirname + "/../common/database/migrations/**/*{.ts,.js}"],
   synchronize: process.env.NODE_ENV === "development",
   logging: process.env.NODE_ENV === "development",

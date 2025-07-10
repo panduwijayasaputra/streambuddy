@@ -24,9 +24,12 @@ import {
   Game,
   UserGame,
   ChatSession,
-  ChatMessage,
   UserSubscription,
 } from "./common/database/entities";
+// Import chat-processing entities
+import { ChatMessage } from "./modules/chat-processing/entities/chat-message.entity";
+import { ResponseTemplate } from "./modules/chat-processing/entities/response-template.entity";
+import { GameKnowledge } from "./modules/chat-processing/entities/game-knowledge.entity";
 
 @Module({
   imports: [
@@ -45,8 +48,10 @@ import {
       Game,
       UserGame,
       ChatSession,
-      ChatMessage,
       UserSubscription,
+      ChatMessage,
+      ResponseTemplate,
+      GameKnowledge,
     ]),
     RedisModule,
     OpenAIModule,

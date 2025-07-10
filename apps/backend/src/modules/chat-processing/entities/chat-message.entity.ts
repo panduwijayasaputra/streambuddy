@@ -12,32 +12,32 @@ export class ChatMessage {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @Column()
+  @Column({ name: "stream_session_id" })
   @Index()
   streamSessionId: string;
 
-  @Column()
+  @Column({ name: "platform" })
   @Index()
   platform: string; // 'twitch', 'youtube', 'facebook', etc.
 
-  @Column()
+  @Column({ name: "user_id" })
   @Index()
   userId: string;
 
-  @Column()
+  @Column({ name: "username" })
   username: string;
 
-  @Column("text")
+  @Column("text", { name: "message" })
   message: string;
 
-  @Column({ nullable: true })
+  @Column({ name: "response", nullable: true })
   response?: string;
 
-  @Column({ default: "pending" })
+  @Column({ name: "status", default: "pending" })
   @Index()
   status: "pending" | "processed" | "filtered" | "responded" | "error";
 
-  @Column({ type: "jsonb", nullable: true })
+  @Column({ name: "metadata", type: "jsonb", nullable: true })
   metadata?: {
     gameContext?: string;
     priority?: number;
@@ -47,12 +47,12 @@ export class ChatMessage {
     confidence?: number;
   };
 
-  @Column({ type: "timestamp", nullable: true })
+  @Column({ name: "processed_at", type: "timestamp", nullable: true })
   processedAt?: Date;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ name: "created_at" })
   createdAt: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({ name: "updated_at" })
   updatedAt: Date;
 }
