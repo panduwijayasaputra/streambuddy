@@ -11,6 +11,7 @@ import { DatabaseMonitoringModule } from "./common/services/database-monitoring.
 import { BackupAutomationModule } from "./common/modules/backup-automation.module";
 import { DatabasePerformanceModule } from "./common/modules/database-performance.module";
 import { SecretsModule } from "./common/modules/secrets.module";
+import { ChatProcessingModule } from "./modules/chat-processing/chat-processing.module";
 import { RateLimitMiddleware } from "./common/middleware/rate-limit.middleware";
 import { LoggingMiddleware } from "./common/middleware/logging.middleware";
 import { ErrorHandlerMiddleware } from "./common/middleware/error-handler.middleware";
@@ -56,6 +57,7 @@ import {
     BackupAutomationModule,
     DatabasePerformanceModule,
     SecretsModule,
+    ChatProcessingModule,
   ],
   controllers: [],
   providers: [],

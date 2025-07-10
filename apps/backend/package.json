@@ -62,9 +62,11 @@
     "secrets:check": "ts-node src/scripts/secrets-cli.ts check"
   },
   "dependencies": {
+    "@nestjs/cache-manager": "^3.0.1",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.0.0",
     "@nestjs/core": "^10.0.0",
+    "@nestjs/event-emitter": "^3.0.1",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/platform-socket.io": "^10.0.0",
     "@nestjs/schedule": "^6.0.0",
@@ -74,6 +76,7 @@
     "@nestjs/websockets": "^10.0.0",
     "@streambuddy/shared": "file:../packages/shared",
     "bcrypt": "^6.0.0",
+    "cache-manager": "^7.0.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "compression": "^1.7.4",
