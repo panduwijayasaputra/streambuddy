@@ -1,0 +1,13 @@
+{
+  "name": "stream-buddy",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/frontend & npm run start:dev --workspace=apps/backend",
+    "build": "npm run build --workspace=apps/frontend && npm run build --workspace=apps/backend",
+    "start": "npm run start --workspace=apps/frontend & npm run start:prod --workspace=apps/backend"
+  }
+}
