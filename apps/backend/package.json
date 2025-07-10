@@ -62,7 +62,8 @@
     "secrets:check": "ts-node src/scripts/secrets-cli.ts check",
     "chat:seed": "ts-node src/scripts/seed-chat-processing.ts",
     "chat:test-ingestion": "ts-node src/scripts/test-chat-ingestion.ts",
-    "chat:test-filtering": "ts-node src/scripts/test-content-filtering.ts"
+    "chat:test-filtering": "ts-node src/scripts/test-content-filtering.ts",
+    "chat:test-crud": "ts-node src/scripts/test-template-response-crud.ts"
   },
   "dependencies": {
     "@nestjs/cache-manager": "^3.0.1",
@@ -78,6 +79,7 @@
     "@nestjs/typeorm": "^10.0.2",
     "@nestjs/websockets": "^10.0.0",
     "@streambuddy/shared": "file:../packages/shared",
+    "axios": "^1.10.0",
     "bcrypt": "^6.0.0",
     "cache-manager": "^7.0.1",
     "class-transformer": "^0.5.1",

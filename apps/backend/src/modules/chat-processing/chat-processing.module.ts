@@ -15,6 +15,7 @@ import { CostOptimizationService } from "./services/cost-optimization.service";
 // Controllers
 import { ChatProcessingController } from "./controllers/chat-processing.controller";
 import { ChatMessageController } from "./controllers/chat-message.controller";
+import { TemplateResponseController } from "./controllers/template-response.controller";
 
 // WebSocket Gateway
 import { ChatProcessingGateway } from "./websocket/chat-processing.gateway";
@@ -38,7 +39,11 @@ import { ResponseValidatorUtil } from "./utils/response-validator.util";
     }),
     EventEmitterModule.forRoot(),
   ],
-  controllers: [ChatProcessingController, ChatMessageController],
+  controllers: [
+    ChatProcessingController,
+    ChatMessageController,
+    TemplateResponseController,
+  ],
   providers: [
     // Core Services
     ChatMessageService,

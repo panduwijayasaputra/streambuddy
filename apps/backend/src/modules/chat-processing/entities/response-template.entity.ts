@@ -16,7 +16,7 @@ export class ResponseTemplate {
   @Index()
   gameContext: string; // 'mobile-legends', 'free-fire', 'valorant', etc.
 
-  @Column("text")
+  @Column("text", { array: true })
   keywords: string[]; // Array of keywords to match
 
   @Column("text")
